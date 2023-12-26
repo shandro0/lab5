@@ -25,7 +25,7 @@
 <p align="center">г. Южно-Сахалинск <br> 2023 год</p>
 
 <h2 align="center">Введение</h2>
-<p align="justify">Основы языка JavaScript</p>
+<p align="justify">Написание кода на js и загрузка его на сервер.</p>
 
 <h2>Цели и задачи</h2>
 1.	Напишите код, выполнив задание из каждого пункта отдельной строкой:
@@ -163,407 +163,358 @@ getMaxSubSum([-1, -2, -3]) = 0
 ```js
 // Задача 1
 function task1() {
-  let x = parseInt(prompt("Введите x"));
-if (x > 0)
-    alert(Math.pow(Math.sin(x), 2));
-else
-    alert(1 - 2 * Math.sin(x*x));
+  var user = {};
+  user.name = "John";
+  user.surname = "Smith";
+  user.name = "Pete";
+  delete user.name;  
+  alert(user.surname);
 }
 
 // Задача 2
 function task2() {
-let n = parseInt(prompt("Введите n"));
-var numberString = n.toString();
-var reversedString = numberString.split('').reverse().join('');
-  if (numberString === reversedString) {
-    alert(true);
-  } else {
-    alert(false);
+  function isEmpty(obj) {
+    if (Object.keys(obj).length)
+        return true;
+
+    return false;
   }
+
+  let schedule = {};
+  alert( isEmpty(schedule) );  // true
+  schedule["8:30"] = "get up";
+  alert( isEmpty(schedule) ); // false
 }
 
 
 
 // Задача 3
 function task3() {
-let n = parseInt(prompt("Введите n"));
-if(n % 4 == 0 & (n % 100 != 0 || n % 400 == 0))
-    alert("Год високосный");
-else
-    alert("Год не високосный");
+  const user2 = {
+      name: "John"
+  };
+  alert(user2.name);
+  user2.name = "Pete"; 
+  alert(user2.name);
 }
 
 // Задача 4
 function task4() {
-  let x = parseInt(prompt("Введите x"));
-  if (x < -1) alert("-1");
-  if (x > -1) alert(x);
-  if (x == -1) alert("1");
+  const salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+  }
+
+  var sum = 0;
+  for (const i in salaries) {
+      sum += +salaries[i];
+  }
+  alert(sum);
 }
 
 // Задача 5
 function task5() {
-  let month = parseInt(prompt("Введите номер месяца"));
-  if (month == 12 || month == 1 || month == 2) alert("Зима");
-  else if (3 <= month && month <= 5) alert("Весна");
-  else if (6 <= month && month <= 8) alert("Лето");
-  else if (9 <= month && month <= 11) alert("Осень");
-  else alert("Некорректный номер месяца");
+  let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+  };  
+  function multiplyNumeric(menu) {
+      for (const x in menu) {
+          if (!isNaN(menu[x]))
+              menu[x] *= 2;
+      }
+  }
+  multiplyNumeric(menu);
+  alert("width: " + menu.width + "\n" + "height: " + menu.height + "\n" + "title: " + menu.title);  
 }
 
 // Задача 6
 function task6() {
-let m = parseInt(prompt("Введите номер масти"));
-let k = parseInt(prompt("Введите номер карты"));
-let suit = "";
-let rank = "";
-switch (m)
-{
-    case 1:
-        suit = "пик";
-        break;
-    case 2:
-        suit = "треф";
-        break;
-    case 3:
-        suit = "бубен";
-        break;
-    case 4:
-        suit = "червей";
-        break;
-    default:
-        alert("Неверный ввод m");
-        return;
-}
+  let fruits = ["Яблоки", "Груша", "Апельсин"];
 
-switch (k)
-{
-    case 6:
-        rank = "Шестерка";
-        break;
-    case 7:
-        rank = "Семерка";
-        break;
-    case 8:
-        rank = "Восьмерка";
-        break;
-    case 9:
-        rank = "Девятка";
-        break;
-    case 10:
-        rank = "Десятка";
-        break;
-    case 11:
-        rank = "Валет";
-        break;
-    case 12:
-        rank = "Дама";
-        break;
-    case 13:
-        rank = "Король";
-        break;
-    case 14:
-        rank = "Туз";
-        break;
-    default:
-        alert("Неверный ввод k");
-        return;
-}
-alert(rank +" "+ suit);
+  let shoppingCart = fruits;
+  shoppingCart.push("Банан");
 
+  alert(fruits.length); // 4
 }
 
 // Задача 7
 function task7() {
-  let year = parseInt(prompt("Введите год"));
-  var animals = ['Крыса', 'Корова', 'Тигр', 'Заяц', 'Дракон', 'Змея', 'Лошадь', 'Овца', 'Обезьяна', 'Петух', 'Собака', 'Свинья'];
-  var colors = ['Зеленый', 'Красный', 'Желтый', 'Белый', 'Черный'];
-
-  var subCycle = (year - 1984) % 60;
-  var animalIndex = subCycle % 12;
-  var colorIndex = Math.floor(subCycle / 12);
-
-  alert(animals[animalIndex] + ', ' + colors[colorIndex]);
+  let styles = ['Джаз', 'Блюз'];
+  styles.push('Рок-н-ролл');
+  styles[Math.floor(styles.length / 2)] = 'Классика';
+  alert(styles.shift());
+  styles.unshift('Рэп', 'Регги');
+  alert(styles);
 }
 
 // Задача 8
 function task8() {
-  let result =  ""
-  for (let i = 1; i <= 10; i++) {
-  const x = 9 * i;
-  result += `9 * ${i} = ${x}` + "\n";
-  }
-  alert(result);
-
+  var arr = ["a", "b"];
+  arr.push(function () {
+      alert(this);
+  })
+  alert(arr[2]()); // undefined
 }
 
 // Задача 9
 function task9() {
-  let result = "";
-  for(let i = 1; i <= 20; i++)
-    {
-        result += `sin ${i} = ${Math.sin(i)}` + "\n";
-    }
-  alert(result);
+  let array = [];
+
+  while(true)
+  {
+      var input = prompt("Введите число");
+      if (input == null || input == isNaN(input))
+          break;
+      else
+          array.push(parseInt(input));
+  }
+
+  let sum = 0;
+  for (let i = 0; i < array.length; i++)
+      sum += array[i];
+
+  alert(sum);
 }
 
 // Задача 10
 function task10() {
-  let result = 0;
-  for(let i = 100; i <=500; i++)
-      result+= i;
-  alert("Сумма от 100 до 500 = " +result);
-  
-  let a = parseInt(prompt("Введите a"));
-  if(a > 500) {
-      alert("Число больше 500!");
-      return;
-  }
-  result = 0;
-  for(let i = a; i <=500; i++)
-      result+= i;
-  alert(`Сумма от ${a} до 500 =  ${result}`);
-  
-  let b = parseInt(prompt("Введите b"));
-  if(b < -10)
-  {
-      alert("Число меньше -10!");
-      return;
-  }
-  result = 0;
-  for(let i=-10; i <= b; i++)
-  {
-      result += i;
-  }
-  alert(`Сумма от -10 до ${b} =  ${result}`);
-  
-  a = parseInt(prompt("Введите a"));
-  b = parseInt(prompt("Введите b"));
-  
-  if (a > b) {
-      alert("Число a больше b!");
-      return;
-  }
-  result = 0;
-  for (let i = a; i <= b; i++)
-      result+=i;
-  alert(`Сумма от ${a} до ${b} = ${result}`);
+  var arr = [1, -2, 3, 4, -9, 6];
+  alert("Исходный массив: " + arr);
+  function getMaxSubSum(arr) {
+      let newSum = 0, maxSum = 0;
+      for (let i = 0; i < arr.length; i++) {
+          newSum += arr[i];
+          if (arr[i] > newSum) newSum = arr[i];
+          if (newSum > maxSum) maxSum = newSum;
+      }
+      return maxSum;
+    }
+    alert(getMaxSubSum(arr));
 }
 
 // Задача 11
 function task11() {
-  let n = parseInt(prompt("Введите n"));
-  let result = 1;
-  for(let i = 1; i <= n; i++)
-      result+= 1/i;
-  alert("Сумма равна: " + result);
+  const array = [1, 1, 2, 3 ,4 ,5, 6, 6, 7 ,6 ,8, 6, 8]; 
+  const result = [];
+  alert("Исходный массив: " + array);
+  for (let i = 0; i < array.length; i++)
+  {
+      let count = 0;
+      if (result.indexOf(array[i]) != -1) continue;
+
+      for(let j = 0; j < array.length; j++)
+      {
+          if (array[i] == array[j])
+              {
+                  count++;
+                  if (count > 2)
+                  {
+                      result.push(array[i]);
+                      break;
+                  }
+              }
+      }
+  }
+
+  for(let i = 0; i < result.length; i++)
+  {
+      for(let j = 0; j < array.length; j++)
+      {
+          if(array[j] == result[i])
+          {
+             array.splice(j, 1);
+             j--;
+          }
+      }
+  }
+
+
+  alert("Новый массив: " + array);
 }
 
 // Задача 12
 function task12() {
-  let x = parseInt(prompt("Введите x"));
-  let y = parseInt(prompt("Введите y"));
+  function Left3Right1FromMax(arr) {
+    let max = arr[0], idx = 0;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            idx = i;
+        }
+    }
 
-  let result = x;
-  for(let i = 1; i < y; i++)
-    result += x;
-  alert(`${x} * ${y} = ${result}`);  
+    // Сдвиг 3 влево
+    for (let i = 0; i < 3; i++) {
+        if (idx === arr.length - 1) break;
+        let temp = arr[idx + 1];
+        arr.splice(idx + 1, 1);
+        arr.splice(idx, 0, temp);
+        idx++;
+    }
+
+    let temp = arr[idx - 1];
+    arr.splice(idx - 1, 1);
+    arr.splice(idx, 0, temp);
+}
+
+var arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+alert("Исходный массив: " + arr);
+Left3Right1FromMax(arr);
+alert("Новый массив: " + arr);
+
 }
 
 // Задача 13
 function task13() {
-  let x = parseInt(prompt("Введите n"));
-  let result = 0;
-  for (let i = 1; i <= x ; i++)
-      result += 2 * i - 1;
-  alert(x + "^2 = " + result);
+  const arr = [-1, 2, 3, -3 , 4, -4, -10, -3]; // -21
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++)
+  {
+      if (arr[i] < 0) sum += arr[i];
+  }
+  alert(sum);
 }
 
 // Задача 14
 function task14() {
-  let x = 0;
-  for (let i = 50; i >= 1; i--)
+  const arr = [1, 5, 3, 6, 5, 6, 2]; 
+  let res = 1;
+  for (let i = 0; i < arr.length; i++)
   {
-      x= Math.sqrt(i + x);
+      if(i % 2 == 1) res *= arr[i];
   }
-  alert(x);
+  alert(res);
 }
 
 // Задача 15
 function task15() {
-  let numbers = [1, 8, 5, 2, 3, 0];
-  let sum = 0;
-  let count = 0;
-  for(let i = 0; numbers[i] != 0; i++)
-  {
-      sum += numbers[i];
-      count ++;
+  const arr = [1, 2, 0, 5, 5, 5, 5, 0, 1, 2, 3]; // 20
+  let res = 0;  
+  if(arr.indexOf(0) == - 1) {
+      alert(0);
+      return;
   }
-  alert("Сумма: " + sum );
-  alert("Кол-во чисел: " + count );
+  for(let i = arr.indexOf(0) + 1; i < arr.length; i++)
+  {
+      res += arr[i];
+      if(arr[i] == 0)
+      {
+          alert(res);
+          return;
+      }
+  }
+  alert(0);
 }
 
 // Задача 16
 function task16() {
-  let numbers = [1, 8, 5, 2, 3, -6];
-  let result = 0;
-  let sum = 0;
-  for(let i = 0; numbers[i] >= 0; i++)
-  {
-    sum+= numbers[i];
-  }
-  result = sum / (numbers.length - 1);
-  alert("Среднее: " + result);
+  var arr = [5, 6, 7, 1, 2, 9, 11];
+  alert(arr);
+  alert(Math.max.apply(null, arr));
 }
 
 // Задача 17
 function task17() {
-  let n = parseInt(prompt("Введите n"));
-  var a = 0;
-  var b = 0;
-  var c = 0;
-  var d = 0;
-  var e = 1;
-  var f = 0;
+  function minOdd(arr) {
+    let min = arr[0];
 
-  var numberString = n.toString();
-
-  for (var i = 0; i < numberString.length; i++) {
-    var digit = parseInt(numberString[i]);
-
-    if (digit === 3) {
-      a++;
+    for (const elem of arr) {
+        if (elem < min && elem % 2 == 0)
+            min = elem;
     }
 
-    if (digit === parseInt(numberString[numberString.length - 1])) {
-      b++;
-    }
-
-    if (digit % 2 === 0) {
-      c++;
-    }
-
-    if (digit > 5) {
-      d+= digit;
-    }
-
-    if (digit > 7) {
-      e*= digit;
-    }
-
-    if (digit === 0 || digit === 5) {
-      c++;
-    }
+    return min;
   }
-  alert('Количество цифр 3: ' + a + '\n'
-  + 'Сколько раз встречается последняя цифра: ' + b + '\n'
-  + 'Количество четных цифр: ' + c + '\n'
-  + 'Сумма цифр, больших пяти: ' + d + '\n'
-  + 'Произведение цифр, больших семи: ' + e + '\n'
-  + 'Количество встреч цифр 0 и 5: ' + f);
+  var arr = [10, 8, 5, 6, 2, 9, 11];
+  alert(arr);
+  alert(minOdd(arr));
 }
 
 // Задача 18
 function task18() {
-  let number = parseInt(prompt("Введите n"));
-  let strNumber = number.toString(); // Преобразуем число в строку
-  let maxDigit = -1;
-  let minDigit = 10;
-  let maxIndexReversed, maxIndex, minIndexReversed, minIndex;
-
-  for (let i = 0; i < strNumber.length; i++) {
-    let digit = parseInt(strNumber[i]);
-
-    // Находим максимальную цифру и ее индекс с конца числа
-    if (digit > maxDigit) {
-      maxDigit = digit;
-      maxIndexReversed = i;
+  function StartsWithZeros(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] === 0)
+            arr.unshift(arr.splice(i--, 1)[0]);
     }
-
-    if (digit < minDigit) {
-      minDigit = digit;
-      minIndexReversed = i;
-    }    
   }
-  maxIndex = strNumber.length - 1 - maxIndexReversed;
-  minIndex = strNumber.length - 1 - minIndexReversed;
-  alert('порядковый номер максимальной цифры от конца числа: ' + (maxIndexReversed) + '\n'
-    + 'порядковый номер максимальной цифры от начала числа: ' + maxIndex + '\n'
-    + 'порядковый номер минимальной цифры от конца числа: ' + minIndexReversed + '\n'
-    + 'порядковый номер минимальной цифры от начала числа: ' + minIndex + '\n')
-    
+  var arr = [0, 1, 2, 3, 0, 4, 5, 0, 6, 7, 0, 8, 0, 0, 0, 9];
+  alert(arr);
+  StartsWithZeros(arr);
+  alert(arr);
 }
 
 // Задача 19
 function task19() {
-  let n = parseInt(prompt('Введите число n'));
-  let value = 2;
-  while(value != n)
+  let arr = [1, 6, 8, 4, 5, 0, 4, 7, 3, 1];
+  let min = 0;
+  let max = 0;
+  for(let i = 0; i < arr.length; i++)
   {
-      if (n % value == 0)
-      {
-          alert("Число не простое");
-          return;
-      } 
-      value++;
+      if (arr[max] < arr[i]) max = i;
+      if (arr[min] > arr[i]) min = i;
   }
-  alert("Число простое");
+  alert(arr);
+  alert(max + min);
 }
 
 // Задача 20
 function task20() {
-  let n = prompt('Введите число n');
-
-  for(let i = 0; i < n.length - 1; i++)
-      if (n[i] >= n[i + 1]) 
-      {
-          alert("false");
-          return;
-      }
-  alert('true');
+  let arr = [12, -3, 4, -1, 6, 8, 19]; 
+  let min = arr[0];
+  for(let i = 0; i < arr.length; i++)
+  {
+      if(Math.abs(min) > Math.abs(arr[i])) min = arr[i];
+  }
+  alert(arr);
+  alert(min);
 }
+
 
 // Задача 21
 function task21() {
-  let array = [];
-  for (let i = 1; i <= 10000; i++)
-      array.push(i);
+  let arr = [];
+  for(let i = 0; i < 10; i++)
+      arr.push(Math.floor(Math.random() * 10 - Math.random() * 10));
 
-  let n = parseInt(prompt('Введите число n'));
-  for (let i = 0; i < array.length; i++)
-  {
-      if (array[i] > n)
-      {
-          alert(i);
-          return;
-      }
-  }
-  alert('Нет такого числа');
+  let arr1 = arr.slice(0, 5).reverse();
+  let arr2 = arr.slice(5, 10).reverse();
+  alert(arr);
+  alert(arr1.concat(arr2));
 }
 
 // Задача 22
 function task22() {
-  let str = "";
-  let value = 10;
-  let max = 30;
+  let arr = [];
+  for(let i = 0; i < 12; i++)
+      arr.push(Math.floor(Math.random() * 12 - Math.random() * 12));
+  
+  alert(arr);
+  for(let i = 0; i < 4; i++) arr.unshift(arr.pop());
+  alert(arr);
+}
 
-  while (value <= 30)
-  {
-      str+=`${value}\n`;
-      value++;
+// Задача 23
+function task23() {
+
+  async function getGenderByAPI() {
+    const name = prompt('Введите имя:');
+
+    try {
+      const response = await fetch(`https://api.genderize.io?name=${name}`);
+      const data = await response.json();
+
+      alert(`Имя: ${data.name} \nГендер: ${data.gender} \nВероятность: ${data.probability*100}% \nКоличество: ${data.count}`);
+    } catch (error) {
+      console.error('Произошла ошибка при запросе к API:', error.message);
+    }
   }
 
-  alert(str);
+  getGenderByAPI();
 
-  str = "";
-  value = 10;
-
-  do{
-      str+=`${value}\n`;
-      value++;
-  } while (value <= 30);
-
-  alert(str);
 }
   
 ```
